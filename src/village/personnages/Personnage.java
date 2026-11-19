@@ -83,4 +83,7 @@ public abstract class Personnage {
     public int getMagieDeNoel() {
         return magieDeNoel;
     }
+    protected void setMagieDeNoel(int x) {
+        this.magieDeNoel = Math.max(0, magieDeNoel);
+    }
 }
