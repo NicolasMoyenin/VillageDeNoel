@@ -40,6 +40,7 @@ public abstract class Personnage {
     public void seRestaurer(Nourriture nourriture) {
         if (!enRepos && nourriture != null) {
             this.faim = Math.max(0, this.faim - nourriture.getValeurNutritive());
+            System.out.println("**Crouic-crouic-crouic-crouic... Burp.**")
             System.out.println(nom + " a mangé et sa faim réduit.");
         } else {
             System.out.println(nom + " ne peut pas manger (en train de se reposer ou nourriture invalide).");
