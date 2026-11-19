@@ -2,70 +2,82 @@ package village.batiments;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import village.model.EtatProprete;
 import village.personnages.Personnage;
 
-public class Batiment {
-
-    public enum DegreProprete {
-        MAUVAIS,
-        CORRECT,
-        BON
-    }
-
+public abstract class Batiment {
+    private String nom;
     private double superficie;
-    private int capaciteAccueil;
-    private DegreProprete degreProprete;
-    private List<Personnage> PersonnagePresents;
+    private int capaciteMax;
+    private EtatProprete etatProprete;
+    private List<Personnage> personnagesPresents;
+    private boolean estOuvert; //true exterieur ou ouvert, false interieur ou fermé
 
-    public Batiment(double superficie, int capaciteAccueil, DegreProprete degreProprete) {
+    public Batiment(String nom, double superficie, int capaciteMax, boolean estOuvert) {
+        this.nom = nom;
         this.superficie = superficie;
-        this.capaciteAccueil = capaciteAccueil;
-        this.degreProprete = degreProprete;
-        this.PersonnagePresents = new ArrayList<>();
+        this.capaciteMax = capaciteMax;
+        this.estOuvert = estOuvert;
+        this.personnagesPresents = new ArrayList<>();
+        this.etatProprete = EtatProprete.BON; // propre par défaut
     }
+
+    public abstract boolean peutAccueillir(Personnage p);
 
     public boolean ajouterPersonnage(Personnage p) {
-        if (PersonnagePresents.size() < capaciteAccueil) {
-            PersonnagePresents.add(p);
+        if (p != null && personnagesPresents.size() < capaciteMax && !personnagesPresents.contains(p) && peutAccueillir(p) == true) {
+            personnagesPresents.add(p);
             return true;
         }
         return false;
     }
 
-    public boolean retirerPersonnage(Personnage p) {
-        return PersonnagePresents.remove(p);
+    public boolean enleverPersonnage(Personnage p) {
+        return personnagesPresents.remove(p);
     }
 
-    public int getNombrePersonnagePresents() {
-        return PersonnagePresents.size();
+    public void nettoyer() {
+        this.etatProprete = EtatProprete.BON;
+        System.out.println("Le bâtiment " + nom + " a été nettoyé.");
+    }
+
+
+    // Getters et Setters utiles
+    public String getNom() {
+        return nom;
     }
 
     public double getSuperficie() {
         return superficie;
     }
 
-    public void setSuperficie(double superficie) {
-        this.superficie = superficie;
+    public int getCapaciteMax() {
+        return capaciteMax;
     }
 
-    public int getCapaciteAccueil() {
-        return capaciteAccueil;
+    public int getNombrePersonnagesPresents() {
+        return personnagesPresents.size();
     }
 
-    public void setCapaciteAccueil(int capaciteAccueil) {
-        this.capaciteAccueil = capaciteAccueil;
+    public List<Personnage> getPersonnagesPresents() {
+        return personnagesPresents;
     }
 
-    public DegreProprete getDegreProprete() {
-        return degreProprete;
+    public EtatProprete getEtatProprete() {
+        return etatProprete;
     }
 
-    public void setDegreProprete(DegreProprete degreProprete) {
-        this.degreProprete = degreProprete;
+    public void setEtatProprete(EtatProprete etatProprete) {
+        this.etatProprete = etatProprete;
     }
 
-    public List<Personnage> getPersonnagePresents() {
-        return PersonnagePresents;
+    public boolean isEstOuvert() {
+        return estOuvert;
+    }
+
+    public void afficherCaracteristiques() {
+        System.out.println("Nom : " +getNom() + ", Superficie : " + getSuperficie() + ", Nb de personnes/capacité : "+ getNombrePersonnagesPresents()+"/"+getCapaciteMax() +
+                ", Etat du batiment : " +getEtatProprete() + ", Personnes présentes : "+ getPersonnagesPresents());
+
     }
 }
