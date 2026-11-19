@@ -1,18 +1,12 @@
 package village.personnages.creatures;
 
-import village.interfaces.EtreFantastique;
-import village.personnages.Humanoide;
+import village.personnages.Creature;
 
-public class Renne extends Humanoide implements EtreFantastique {
+
+public class Renne extends Creature {
 
     public Renne(String nom, String sexe, int age) {
         super(nom, sexe, age);
-    }
-
-    @Override
-    public void agirFantastiquement() {
-        System.out.println(getNom() + " s'amuse dans le village de Noël.");
-        setMagieDeNoel(getMagieDeNoel()*2);
     }
 
     @Override

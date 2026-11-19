@@ -1,7 +1,7 @@
 package village.personnages;
 
 
-//NOTE : les LLM (tel que Gemini) ont m'ont grandement aidé surtout au niveau de certains calculs ou des explications de certaines fonctions.
+//NOTE : les LLM (tel que Gemini) ont grandement aidé surtout au niveau de certains calculs ou des explications de certaines fonctions.
 import village.model.Nourriture;
 
 public abstract class Personnage {
@@ -42,7 +42,7 @@ public abstract class Personnage {
     public void seRestaurer(Nourriture nourriture) {
         if (!enRepos && nourriture != null) {
             this.faim = Math.max(0, this.faim - nourriture.getValeurNutritive());
-            System.out.println("**Crouic-crouic-crouic-crouic... Burp.**")
+            System.out.println("**Crouic-crouic-crouic-crouic... Burp.**");
             System.out.println(nom + " a mangé et sa faim réduit.");
         } else {
             System.out.println(nom + " ne peut pas manger (en train de se reposer ou nourriture invalide).");

@@ -55,9 +55,9 @@ public class Lutin extends Humanoide implements Divertissable, Travailleur, Etre
 
         for (Personnage p : temoins) {
             if (p instanceof Humanoide h && !h.isEstAuTravail()) {
-                modifierMagieDeNoel(2);
+                p.modifierMagieDeNoel(2);
             } else if (p instanceof Creature) {
-                modifierMagieDeNoel(-2);
+                p.modifierMagieDeNoel(-2);
             }
         }
     }

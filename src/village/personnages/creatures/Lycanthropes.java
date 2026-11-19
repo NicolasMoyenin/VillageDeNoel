@@ -1,9 +1,9 @@
 package village.personnages.creatures;
 
 import village.interfaces.EtreFantastique;
-import village.personnages.Humanoide;
+import village.personnages.Creature;
 
-public class Lycanthropes extends Humanoide implements EtreFantastique {
+public class Lycanthropes extends Creature implements EtreFantastique {
 
     public Lycanthropes(String nom, String sexe, int age) {
         super(nom, sexe, age);
@@ -11,8 +11,8 @@ public class Lycanthropes extends Humanoide implements EtreFantastique {
 
     @Override
     public void agirFantastiquement() {
-        System.out.println(getNom() + " s'amuse dans le village de Noël.");
-        setMagieDeNoel(getMagieDeNoel()*2);
+        System.out.println(getNom() + " se lèche les babines.");
+        modifierMagieDeNoel(3);
     }
 
     @Override
