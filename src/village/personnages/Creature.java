@@ -1,7 +1,7 @@
 package village.personnages;
-
-import village.personnages.Humanoide;
-import village.personnages.Humanoide;
+import java.util.List;
+import java.util.Random;
+import village.personnages.creatures.Lycanthrope;
 
 public abstract class Creature  extends Personnage{
 

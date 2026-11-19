@@ -13,6 +13,8 @@ public abstract class Personnage {
     private int fatigue;       // Indicateur de fatigue
     private boolean enRepos;   // Permet de savoir s'il se repose ou non
     private int magieDeNoel;   // Indicateur de magie de Noel
+    private boolean estVivant = true;
+    private boolean estBruyant = false;
 
     public Personnage(String nom, String sexe, int age) {
         this.nom = nom;
@@ -61,6 +63,8 @@ public abstract class Personnage {
         this.magieDeNoel = Math.max(0, this.magieDeNoel + delta);
     }
 
+
+
     // Getters et Setters
     public String getNom() {
         return nom;
@@ -83,7 +87,23 @@ public abstract class Personnage {
     public int getMagieDeNoel() {
         return magieDeNoel;
     }
+    public boolean isEstVivant() {
+        return estVivant;
+    }
+
+    public void setEstVivant(boolean estVivant) {
+        this.estVivant = estVivant;
+    }
+
+    public boolean isEstBruyant() {
+        return estBruyant;
+    }
+
+    public void setEstBruyant(boolean estBruyant) {
+        this.estBruyant = estBruyant;
+    }
+
     protected void setMagieDeNoel(int x) {
-        this.magieDeNoel = Math.max(0, magieDeNoel);
+        this.magieDeNoel = Math.max(0, x);
     }
 }

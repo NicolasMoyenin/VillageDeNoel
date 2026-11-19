@@ -4,6 +4,10 @@ import village.interfaces.Divertissable;
 import village.interfaces.Travailleur;
 import village.interfaces.EtreFantastique;
 import village.personnages.Humanoide;
+import java.util.List;
+import village.model.Farce;
+import village.personnages.Personnage;
+import village.personnages.Creature;
 
 public class Lutin extends Humanoide implements Divertissable, Travailleur, EtreFantastique{
 
@@ -38,4 +42,25 @@ public class Lutin extends Humanoide implements Divertissable, Travailleur, Etre
         System.out.println(getNom() + " souffle de la neige par sa bouche.");
         modifierMagieDeNoel(3);
     }
+
+    public void setEstFarceur(boolean estFarceur) {
+        this.estFarceur = estFarceur;
+    }
+
+    public void faireFarce(Farce farce, List<Personnage> temoins) {
+        if (!estFarceur) {
+            return; // rien s'il n'est pas en mode farceur
+        }
+        System.out.println(getNom() + " fait la farce : " + farce);
+
+        for (Personnage p : temoins) {
+            if (p instanceof Humanoide h && !h.isEstAuTravail()) {
+                modifierMagieDeNoel(2);
+            } else if (p instanceof Creature) {
+                modifierMagieDeNoel(-2);
+            }
+        }
+    }
 }
+
+
