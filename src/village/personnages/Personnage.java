@@ -65,29 +65,44 @@ public abstract class Personnage {
     }
 
 
+    public void modifierFaim(int delta) {
+        this.faim = Math.max(0, this.faim + delta);
+    }
+
+    public void modifierFatigue(int delta) {
+        this.fatigue = Math.max(0, this.fatigue + delta);
+    }
+
 
     // Getters et Setters
     public String getNom() {
         return nom;
     }
+
     public String getSexe() {
         return sexe;
     }
+
     public int getAge() {
         return age;
     }
+
     public int getFaim() {
         return faim;
     }
+
     public int getFatigue() {
         return fatigue;
     }
+
     public boolean isEnRepos() {
         return enRepos;
     }
+
     public int getMagieDeNoel() {
         return magieDeNoel;
     }
+
     public boolean isEstVivant() {
         return estVivant;
     }
@@ -107,4 +122,10 @@ public abstract class Personnage {
     protected void setMagieDeNoel(int x) {
         this.magieDeNoel = Math.max(0, x);
     }
+
+@Override
+    public String toString(){
+    return nom;
 }
+}
+
