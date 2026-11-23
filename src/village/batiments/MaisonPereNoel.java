@@ -10,7 +10,7 @@ public class MaisonPereNoel extends Batiment {
         super("Maison du Père Noël",350.0,0,false);
     }
 
-    public static MaisonPereNoel getInstance() {
+    public static MaisonPereNoel getInstance() { //singleton (qu'une seule maison du pere noel (pas plus, pas moins)
         if(instance == null){
             instance = new MaisonPereNoel();
         }
