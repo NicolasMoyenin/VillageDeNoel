@@ -10,3 +10,6 @@ Le projet contient uniquement les classes et interfaces nécessaires à la modé
 
 - Nicolas Moyenin
 - Aurèle Jambert
+
+## PS
+Merci de ne pas tenir compte des noms de commits précédent le 20 Novembre, nous avons décidé à posteriori de deux ci de garder ce repo comme celui du rendu donc l'historique avant cette décision n'est pas très professionnel, je m'en excuse.
